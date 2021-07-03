@@ -3,7 +3,7 @@
     <div class="banner">
       <div class="container">
         <h1 class="logo-font">realWorld Nuxtjs</h1>
-        <p>做的越来越好.</p>
+        <p>每天进步一点点.</p>
       </div>
     </div>
 
@@ -25,8 +25,7 @@
                       tab: 'your_feed',
                     },
                   }"
-                  >Your Feed</nuxt-link
-                >
+                >Your Feed</nuxt-link>
               </li>
               <li class="nav-item">
                 <nuxt-link
@@ -38,8 +37,7 @@
                   :to="{
                     name: 'home',
                   }"
-                  >Global Feed</nuxt-link
-                >
+                >Global Feed</nuxt-link>
               </li>
               <li v-if="tag" class="nav-item">
                 <nuxt-link
@@ -55,17 +53,12 @@
                       tag: tag,
                     },
                   }"
-                  ># {{ tag }}</nuxt-link
-                >
+                ># {{ tag }}</nuxt-link>
               </li>
             </ul>
           </div>
 
-          <div
-            class="article-preview"
-            v-for="article in articles"
-            :key="article.slug"
-          >
+          <div class="article-preview" v-for="article in articles" :key="article.slug">
             <div class="article-meta">
               <nuxt-link
                 :to="{
@@ -86,12 +79,12 @@
                       username: article.author.username,
                     },
                   }"
-                >
-                  {{ article.author.username }}
-                </nuxt-link>
-                <span class="date">{{
+                >{{ article.author.username }}</nuxt-link>
+                <span class="date">
+                  {{
                   article.createdAt | date("MMM DD, YYYY")
-                }}</span>
+                  }}
+                </span>
               </div>
               <button
                 class="btn btn-outline-primary btn-sm pull-xs-right"
@@ -101,7 +94,8 @@
                 @click="onFavorite(article)"
                 :disabled="article.favoriteDisabled"
               >
-                <i class="ion-heart"></i> {{ article.favoritesCount }}
+                <i class="ion-heart"></i>
+                {{ article.favoritesCount }}
               </button>
             </div>
             <nuxt-link
@@ -140,8 +134,7 @@
                       tab: tab,
                     },
                   }"
-                  >{{ item }}</nuxt-link
-                >
+                >{{ item }}</nuxt-link>
               </li>
             </ul>
           </nav>
@@ -164,8 +157,7 @@
                 class="tag-pill tag-default"
                 v-for="item in tags"
                 :key="item"
-                >{{ item }}</nuxt-link
-              >
+              >{{ item }}</nuxt-link>
             </div>
           </div>
         </div>

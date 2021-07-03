@@ -22,6 +22,22 @@ export const getYourFeedArticles = params => {
   })
 }
 
+// 关注作者 
+export const addFollow = slug => {
+  return request({
+    method: 'POST',
+    url: `/api/profiles/${slug}/follow`
+  })
+}
+
+// 取消关注作者 
+export const unFollow = slug => {
+  return request({
+    method: 'DELETE',
+    url: `/api/profiles/${slug}/follow`
+  })
+}
+
 // 添加点赞
 export const addFavorite = slug => {
   return request({
@@ -50,6 +66,15 @@ export const getArticle = slug => {
 export const getComments = slug => {
   return request({
     method: 'GET',
+    url: `/api/articles/${slug}/comments`
+  })
+}
+
+// 发表评论
+export const postComment = (slug ,data) => {
+  return request({
+    method: 'POST',
+    data: data,
     url: `/api/articles/${slug}/comments`
   })
 }
